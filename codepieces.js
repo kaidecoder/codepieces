@@ -80,3 +80,32 @@ function recursiveAddARange(n, total=0){
     }  
 }
 console.log('total', recursiveAddARange(10))
+
+//recursion with objects:  Print all the children
+const tree = {
+    name: "John",
+    children: [
+        {
+            name: "Jim",
+            children: []
+        },
+        {
+            name: "Zoe",
+            children: [
+                {name: "Kyle", children: []},
+                {name: "Sophie", children: []}
+            ]
+        }
+    ]
+}
+function printChildrenRecursive(tree){
+    if(tree.children.length === 0){
+        return
+    }else{
+        tree.children.forEach(child => {
+            console.log(child.name)
+            printChildrenRecursive(child)
+        })
+    }
+}
+console.log(printChildrenRecursive(tree))
